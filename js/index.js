@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".parallax-window").parallax({imageSrc:"/path/to/image.jpg"}),$(".showmenu").on("click",function(n){n.preventDefault(),$(".top-menu").toggleClass("open")}),$(window).scroll(function(){var n=$(window).scrollTop(),o=$(window).height();$(".animated").each(function(){$(this).offset().top<=o+n&&$(this).addClass("fadeIn")})})});

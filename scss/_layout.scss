@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);//Google font
+$font:'Noto Sans TC', sans-serif;
+@mixin pad{
+	@media (max-width: 768px){
+		@content
+	}
+}
+@mixin mobile{
+	@media (max-width: 480px){
+		@content
+	}
+}
+@mixin fontStyle{
+	font-family: $font;
+	font-weight:bold;
+}
+@mixin fontSet{
+	line-height: 1.5;
+	letter-spacing: 1px;
+}
+
+.wraper{
+	.top-menu{
+		@include fontStyle;
+		background: #82b8d8;
+		width: 100%;
+		text-align: center;//讓選單置中關鍵
+		font-size: 20px;
+		position: fixed;
+		z-index: 2;
+		:hover{
+				background: #ccecff;
+			}
+		li{
+			display: inline-block;//讓選單置中關鍵
+			padding: 10px;
+			margin: 8px 0 8px 0;
+			@include pad(){
+				width: 100%;
+			}
+		}
+		li a{
+			color: #FF8800;
+			text-decoration: none;
+		}
+		@include pad(){
+			position: static;
+			height: 0;
+			overflow: hidden;
+			position: absolute;
+			top: 44px;
+			transition: height 1s;
+		}
+	}
+	.open{
+		@include pad(){
+			height: 300px;
+		}
+	}
+	.showmenu{
+		display: none;
+		text-decoration: none;
+		@include pad(){
+			display: block;
+			text-align: center;
+			background: #82b8d8;
+			color: #FF8800;
+			padding: 10px;
+			font-size: 22px;
+		}
+		span{
+			@include pad(){
+				@include fontStyle;
+			}
+		}
+	}
+	.footer{
+		font-family: $font;
+		text-align: center;
+		background: #2c81b2;
+		color: #FFFFFF;
+		padding: 20px;
+		@include fontSet;
+	}
+	.parallax-window{
+	    min-height: 500px;
+		background: transparent;
+		z-index: 1;
+	}
+	.content{
+		max-width: 100%;//RWD請加上這行
+		width: 1080px;
+		margin: 0 auto;
+		background-image: url(../images/chatbg.jpg);
+		background-repeat: repeat-y;
+		color: #FF8800;
+		padding: 30px 100px 30px 100px;
+		@include fontStyle;
+		@include fontSet;
+		@include pad(){
+			padding: 20px 45px 20px 45px;
+		}
+		@include mobile(){
+			padding: 10px 5px 10px 5px;
+		}
+		.container{
+		    border: 2px solid #2c81b2;
+		    background: #ccecff;
+		    border-radius: 5px;
+		    padding: 10px;
+		    margin: 10px 0;
+		    word-wrap:break-word;//文字換行
+		    @include pad(){
+				padding: 8px;
+			}
+			@include mobile(){
+				padding: 5px;
+			}
+			a{
+				text-decoration: none;
+				font-size: 18px;
+				color: #E63F00;
+			}
+		}
+		.girl{
+		    border-color: #FF69B4;
+		    background: #FFE4E1;
+		}
+		.container:after{
+		    content: "";
+		    clear: both;
+		    display: table;
+		}
+		.container img{
+		    float: left;
+		    max-width: 60px;
+		    width: 100%;
+		    margin-right: 20px;
+		    @include pad(){
+		    	max-width: 50px;
+		    	margin-right: 10px;
+		    }
+		   @include mobile(){
+		   		max-width: 40px;
+		   		margin-right: 5px;
+		   }
+		}
+		.go-home{
+			@include fontStyle;
+			background: #d88015;
+			color: #FFFFFF;
+			padding: 5px 10px;
+			font-size: 18px;
+			margin-top: 15px;
+			cursor: pointer;
+		}
+		.animated{
+			opacity: 0;
+			transition: all 1.5s;
+  			transform: translateY(50px);
+		}
+		.fadeIn {
+  			opacity: 1;
+  			transform: translateY(0);
+		}
+	}
+}

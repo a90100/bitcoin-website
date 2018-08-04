@@ -1,0 +1,55 @@
+.content.page5{
+	background-image: url(../images/endbg.jpg);
+	background-repeat: repeat-y;
+	.info{
+		h1{
+			font-size: 24px;
+		}
+		a{
+			text-decoration: none;
+			color: #E63F00;
+		}
+	}
+	.team{
+		margin: 20px 0 10px 0;
+		color: #E63F00;
+		h1{
+			font-size: 24px;
+			color: #FF8800;
+		}
+		.author{
+			display: flex;
+			padding: 10px 0 10px 0;
+			@include mobile(){
+				display: initial;
+			}
+			img{
+				display: inline;
+				float: left;
+				margin-right: 10px;
+			}
+			p{
+				align-self:center;//搭配display flex使用
+				a{
+					color: #E63F00;
+					font-size: 18px;
+				}
+			}
+		}
+		img{
+			width: 180px;
+			height: 180px;
+			border-radius: 7%;
+			border: 2px solid #000000;
+			@include mobile(){
+				width: 80px;
+				height: 80px;
+				border: 1px solid #000000;
+			}
+		}
+	}
+	.clearfix{
+		clear: both;
+
+	}
+}

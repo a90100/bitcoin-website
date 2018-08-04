@@ -1,0 +1,158 @@
+@mixin cardSet{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.parallax-window.index{
+	min-height: 700px;
+	.setAnimate.animated.flipInY{
+		-webkit-animation-duration: 2s;
+	  	animation-duration: 2s;
+	  	-webkit-animation-delay: 2.5s;
+	  	animation-delay: 2.5s;
+	  	position: relative;
+	  	top: 170px;
+	  	margin: 0 200px 0 200px;
+	  	padding: 15px;
+	  	background: #FFFFFF;
+	  	opacity: 0.9;
+	  	color: #FF8800;
+		@include fontSet;
+		@include fontStyle;
+		font-size: 20px;
+		@media (max-width: 960px) {
+			margin: 0 100px 0 100px;
+		}
+	  	@include pad(){
+			top: 100px;
+			margin: 0 80px 0 80px;
+			font-size: 18px;
+	  	}
+	  	@include mobile(){
+	  		top: 50px;
+	  		margin: 0 10px 0 10px;
+	  		font-size: 16px;
+	  		padding: 6px;
+	  	}
+	  	span{
+	  		font-size: 30px;
+	  		@include pad(){
+	  			font-size: 26px;
+	  		}
+	  		@include mobile(){
+	  			font-size: 22px;
+	  		}
+	  	}
+	}
+}
+.content.flip-card{
+	padding: 30px 100px 310px 100px;
+	@media (max-width: 1080px){
+		padding: 30px 70px 300px 70px;
+	}
+	@media (max-width: 960px) {
+		padding: 25px 55px 280px 55px;
+	}
+	@include pad(){
+		padding: 20px 45px 350px 45px;
+	}
+	@include mobile(){
+		padding: 10px 5px 580px 5px;
+	}
+	.image-card{
+		position: relative;
+		height: 270px;
+		width: 21%;
+		margin-right: 2%;
+		margin-left: 2%;
+		float: left;
+		@media (max-width: 1080px) {
+			height: 260px;
+			width: 22%;
+			margin-right: 1.5%;
+			margin-left: 1.5%;
+		}
+		@media (max-width: 960px) {
+			height: 240px;
+			width: 23%;
+			margin-right: 1%;
+			margin-left: 1%;
+		}
+		@include pad(){
+			height: 150px;
+			width: 40%;
+			margin-right: 5%;
+			margin-left: 5%;
+			margin-bottom: 3%;
+		}
+		@include mobile(){
+			height: 130px;
+			width: 60%;
+			margin-right: 20%;
+			margin-left: 20%;
+		}
+		.card{
+			@include cardSet;
+			transform-style: preserve-3d;
+			transition: all 1s ease;
+			.front{
+				@include cardSet;
+				background-visibility: hidden;
+				@include fontStyle;
+				background: #FFFFFF;
+				border-radius: 4%;
+				a{
+					text-decoration: none;
+					color: #FF8800;
+					text-align: center;
+					cursor: default;
+					img{
+						width: 100%;
+						height: 50%;
+						border-radius: 5% 5% 0 0;
+					}
+				}
+			}
+			.back{
+				@include cardSet;
+				background-visibility: hidden;
+				@include fontStyle;
+				background: #FFE4B5;
+				color: #2c81b2;
+				transform: rotateY(180deg);
+				border-radius: 4%;
+				img{
+					max-width: 40px;
+					width: 100%;
+					display: block;//圖片置中
+					margin: 10px auto;//圖片置中
+					@include pad(){
+						display: none;
+					}
+				}
+				.go{
+					@include fontStyle;
+					background: #2c81b2;
+					color: #FFFFFF;
+					padding: 5px 7px;
+					font-size: 16px;
+					position: absolute;//置中關鍵code
+					width: 45%;//置中關鍵code
+					margin-left: 27.5%;//置中關鍵code
+					margin-right: 27.5%;//置中關鍵code
+					bottom: 10%;
+					cursor:pointer;
+				}
+				p{
+					padding: 10px 5px 0 5px;
+				}
+			}
+		}
+		.card:hover{
+			transform: rotateY(180deg);
+		}
+	}
+	.image-card.mr0{
+		margin-right: 0;
+	}
+}
